@@ -7,7 +7,6 @@ function Home() {
   return (
     <div className="min-h-screen">
 
-      {/* Contenido */}
       <div className="pb-16"> 
         <HeroSection />
         <WhyUs />

@@ -8,22 +8,69 @@ import Confirm from '../pages/Confirmation';
 import Servicios from '../pages/Servicios';
 import Exito from '../pages/Exito';
 import MisCitas from '../pages/MisCitas';
+import Login from '../pages/Login';
+import ProtectedRoute from '../components/ProtectedRoutes';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<Login />} />
+
         <Route path="/" element={<Layout />}>
+          {/* Publicas */}
           <Route index element={<Home />} />
-          
-          <Route path="agendar" element={<AgendarCita />} />
           <Route path="servicios" element={<Servicios />} />
-          <Route path="citas" element={<MisCitas />} />
-          <Route path="agendar/time" element={<Time />} />
-          <Route path="agendar/barbero" element={<Barber />} />
-          <Route path="agendar/confirmacion" element={<Confirm />} />
-          <Route path="agendar/guardada" element={<Exito />} />
-          
+
+          {/* Protegidas */}
+          <Route
+            path="citas"
+            element={
+              <ProtectedRoute>
+                <MisCitas />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="agendar"
+            element={
+              <ProtectedRoute>
+                <AgendarCita />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="agendar/time"
+            element={
+              <ProtectedRoute>
+                <Time />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="agendar/barbero"
+            element={
+              <ProtectedRoute>
+                <Barber />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="agendar/confirmacion"
+            element={
+              <ProtectedRoute>
+                <Confirm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="agendar/guardada"
+            element={
+              <ProtectedRoute>
+                <Exito />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

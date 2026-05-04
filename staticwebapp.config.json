@@ -1,0 +1,39 @@
+{
+    "auth": {
+      "identityProviders": {
+        "azureActiveDirectory": {
+          "registration": {
+            "openIdIssuer": "https://login.microsoftonline.com/bb9dbf14-d41b-4ebd-8a34-d45a8e365d38/v2.0",
+            "clientIdSettingName": "AAD_CLIENT_ID",
+            "clientSecretSettingName": "AAD_CLIENT_SECRET"
+          }
+        },
+        "google": {
+            "registration": {
+              "clientIdSettingName": "GOOGLE_CLIENT_ID",
+              "clientSecretSettingName": "GOOGLE_CLIENT_SECRET"
+            }
+          }
+      }
+    },
+    "routes": [
+      {
+        "route": "/appointments*",
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/.auth/login/aad",
+        "allowedRoles": ["anonymous"]
+      },
+      {
+        "route": "/*",
+        "allowedRoles": ["anonymous"]
+      }
+    ],
+    "responseOverrides": {
+      "401": {
+        "redirect": "/.auth/login/aad",
+        "statusCode": 302
+      }
+    }
+  }
