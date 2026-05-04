@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CTASection() {
+
+  const navigate = useNavigate();
+
   return (
     <section className="w-full py-14 md:py-18 px-6 flex justify-center items-center bg-black">
 
@@ -24,16 +28,14 @@ export default function CTASection() {
           Agenda tu cita ahora y experimenta el mejor servicio de barbería de la ciudad.
         </p>
 
-        {/* Botón */}
+        {/* BOTÓN */}
         <div className="mt-10">
-          <a
-            href="https://wa.me/5210000000000"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={() => navigate("/agendar")}
             className="inline-block bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] text-black px-10 py-4 rounded-md font-semibold text-base md:text-lg tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(255,215,0,0.5)]"
           >
             Reserva Tu Cita Ahora
-          </a>
+          </button>
         </div>
 
       </div>

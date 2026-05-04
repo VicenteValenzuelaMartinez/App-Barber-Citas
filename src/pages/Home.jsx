@@ -8,13 +8,12 @@ function Home() {
     <div className="min-h-screen">
 
       {/* Contenido */}
-      <div className="pb-16"> {/* espacio para el menú */}
+      <div className="pb-16"> 
         <HeroSection />
         <WhyUs />
         <CTASection /> 
       </div>
 
-      {/* Menú abajo */}
       <BottomNav />
 
     </div>

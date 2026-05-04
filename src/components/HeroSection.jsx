@@ -1,26 +1,26 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import barberLogo from "../assets/logo.png";
-import barberImg from "../assets/barber.jpeg"
+import barberImg from "../assets/barber.jpeg";
 import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
+
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* Imagen de fondo */}
       <img
         src={barberImg}
         alt="Barber"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Overlay oscuro */}
       <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* Contenido */}
       <div className="relative z-10 flex flex-col justify-start min-h-screen pt-16 md:pt-22 px-6 sm:px-10 md:px-20 text-white max-w-2xl">
 
-        {/* Logo */}
         <div className="mb-4 w-16 sm:w-20 md:w-28 lg:w-32">
           <img
             src={barberLogo}
@@ -29,41 +29,48 @@ export default function Hero() {
           />
         </div>
 
-        {/* Título */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-white via-[#FFD700] to-[#D4AF37] bg-clip-text text-transparent">
           Tu Estilo
         </h1>
 
-        {/* Subtítulo */}
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold leading-tight text-white/90 tracking-wide mt-2">
           Nuestra Pasión
         </h2>
 
-        {/* Línea decorativa */}
+        
         <div className="mt-4 w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] rounded-full"></div>
 
-        {/* Descripción */}
+      
         <p className="mt-6 text-gray-300 text-sm sm:text-base md:text-lg max-w-md">
           Reserva tu cita en pocos pasos y mantén tu estilo siempre impecable.
         </p>
 
-        {/* Botones */}
+    
         <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <button className="w-full sm:w-auto bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] text-black px-6 py-3 rounded-md font-semibold hover:from-[#C9A227] hover:to-[#B8961E] transition shadow-lg">
+
+        
+          <button
+            onClick={() => navigate("/agendar")}
+            className="w-full sm:w-auto bg-gradient-to-r from-[#D4AF37] via-[#FFD700] to-[#C9A227] text-black px-6 py-3 rounded-md font-semibold hover:from-[#C9A227] hover:to-[#B8961E] transition shadow-lg"
+          >
             Agendar Cita
           </button>
 
-          <button className="w-full sm:w-auto bg-white text-[#D4AF37] border border-white px-6 py-3 rounded-md font-bold text-base sm:text-lg tracking-wide hover:bg-gradient-to-r hover:from-[#D4AF37] hover:via-[#FFD700] hover:to-[#C9A227] hover:text-black transition shadow-md">
+      
+          <button
+            onClick={() => navigate("/servicios")}
+            className="w-full sm:w-auto bg-white text-[#D4AF37] border border-white px-6 py-3 rounded-md font-bold text-base sm:text-lg tracking-wide hover:bg-gradient-to-r hover:from-[#D4AF37] hover:via-[#FFD700] hover:to-[#C9A227] hover:text-black transition shadow-md"
+          >
             Ver Servicios
           </button>
+
         </div>
 
-        {/* Redes sociales */}
+      
         <div className="mt-6 flex gap-5 text-xl">
 
-          {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/efrainfranco50?igsh=MXRnZzdxMnk5YXQ0NQ=="
             target="_blank"
             rel="noreferrer"
             className="p-2 rounded-full transition hover:bg-gradient-to-r hover:from-pink-500 hover:via-red-500 hover:to-yellow-500 hover:scale-110"
@@ -71,9 +78,8 @@ export default function Hero() {
             <FaInstagram className="text-white" />
           </a>
 
-          {/* Facebook */}
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/18hQcXbEsW/?mibextid=wwXIfr"
             target="_blank"
             rel="noreferrer"
             className="p-2 rounded-full transition hover:bg-blue-600 hover:scale-110"
@@ -81,26 +87,17 @@ export default function Hero() {
             <FaFacebookF className="text-white" />
           </a>
 
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/5210000000000"
-            target="_blank"
-            rel="noreferrer"
-            className="p-2 rounded-full transition hover:bg-[#25D366] hover:scale-110"
-          >
-            <FaWhatsapp className="text-white" />
-          </a>
+         
         </div>
       </div>
 
-      {/* Botón flotante WhatsApp */}
       <a
-        href="https://wa.me/5210000000000"
+        href="https://www.facebook.com/share/18hQcXbEsW/?mibextid=wwXIfr"
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-20 right-5 z-20 bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition"
+        className="fixed bottom-20 right-5 z-20 bg-[#1877F2] p-4 rounded-full shadow-lg hover:scale-110 transition"
       >
-        <FaWhatsapp className="text-white text-xl" />
+        <FaFacebookF className="text-white text-xl" />
       </a>
 
     </section>

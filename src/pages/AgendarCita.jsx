@@ -8,46 +8,60 @@ const servicios = [
     nombre: "Corte Clásico",
     descripcion: "Corte tradicional con tijera y máquina",
     duracion: "30 minutos",
-    precio: 15000,
+    precio: 120,
   },
   {
     id: 2,
     nombre: "Corte y Barba",
     descripcion: "Corte completo más perfilado y arreglo de barba",
-    duracion: "45 minutos",
-    precio: 25000,
+    duracion: "20 - 45 minutos",
+    precio: 170,
   },
   {
     id: 3,
-    nombre: "Afeitado Clásico",
-    descripcion: "Afeitado tradicional con navaja y toalla caliente",
-    duracion: "30 minutos",
-    precio: 18000,
+    nombre: "Corte, Barba y Ceja",
+    descripcion: "Servicio completo que incluye corte de cabello, arreglo de barba y perfilado de ceja para un look limpio y definido",
+    duracion: "30 - 60 minutos",
+    precio: 190,
   },
   {
     id: 4,
-    nombre: "Corte Premium",
-    descripcion: "Corte, barba, cejas y tratamiento capilar",
+    nombre: "PAQUETE VIP",
+    descripcion: "Corte, barba, ceja y facial completo para un estilo impecable",
     duracion: "60 minutos",
-    precio: 30000,
+    precio: 420,
   },
   {
     id: 5,
-    nombre: "Corte Niño",
-    descripcion: "Corte especial para niños menores de 12 años",
-    duracion: "25 minutos",
-    precio: 12000,
+    nombre: "Barba",
+    descripcion: "Arreglo y diseño de barba con acabado limpio y preciso",
+    duracion: "30 minutos",
+    precio: 80,
   },
   {
     id: 6,
-    nombre: "Tinte y Decoloración",
-    descripcion: "Coloración profesional y diseño personalizado",
-    duracion: "90 minutos",
-    precio: 35000,
+    nombre: "Corte Dama",
+    descripcion: "Corte de dama personalizado para resaltar tu estilo y belleza natural",
+    duracion: "30 minutos",
+    precio: 150,
+  },
+  {
+    id: 7,
+    nombre: "Depilación",
+    descripcion: "Depilación precisa para un acabado limpio y duradero",
+    duracion: "30 minutos",
+    precio: 50,
+  },
+  {
+    id: 8,
+    nombre: "Ceja y Bigote",
+    descripcion: "Perfilado de ceja y bigote para un acabado limpio y definido",
+    duracion: "30 minutos",
+    precio: 80,
   },
 ];
 
-const steps = ["Servicio", "Barbero", "Fecha", "Confirmar"];
+const steps = ["Servicio", "Fecha", "Barbero", "Confirmar"];
 
 export default function AgendarCita() {
   const [seleccionado, setSeleccionado] = useState(null);
@@ -57,7 +71,12 @@ export default function AgendarCita() {
 
   const handleContinuar = () => {
     if (!seleccionado) return;
-    navigate("/agendar/barbero");
+
+    navigate("/agendar/time", {
+      state: {
+        servicio: seleccionado
+      }
+    });
   };
 
   return (
@@ -164,6 +183,7 @@ export default function AgendarCita() {
             Continuar
           </button>
         </div>
+
       </div>
     </div>
   );
